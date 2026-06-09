@@ -1,68 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wallet - Ads Click Coin</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - Ads Click Coin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>💰 Wallet</h1>
+        
+        <div class="card" style="text-align: center;">
+            <p>Current Balance</p>
+            <div class="balance" id="walletBalance" style="color: gold; font-size: 32px;">0 Tk</div>
+        </div>
 
-<div class="container">
+        <a href="withdraw.html" class="btn" style="background: #059669; padding: 20px; font-size: 18px;">💸 Withdraw Now</a>
 
-<h1>💰 Wallet</h1>
+        <div class="card">
+            <h3>Withdraw History</h3>
+            <div id="historyContainer" style="margin-top: 10px; color: #94a3b8;">
+                <p>No recent withdrawals.</p>
+            </div>
+        </div>
 
-<div class="card">
+        <div class="footer-space"></div>
 
-<p>Current Balance</p>
-
-<div class="balance" id="walletBalance">
-0 Tk
-</div>
-
-</div>
-
-<div class="card">
-
-<p>Total Earned</p>
-
-<div class="balance" id="totalEarned">
-0 Tk
-</div>
-
-</div>
-
-<div class="card">
-
-<p>Total Withdrawn</p>
-
-<div class="balance" id="totalWithdrawn">
-0 Tk
-</div>
-
-</div>
-
-<div class="footer-space"></div>
-
-<div class="navbar">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="tasks.html">📺 Tasks</a>
-
-<a href="refer.html">👥 Refer</a>
-
-<a href="wallet.html">💰 Wallet</a>
-
-<a href="profile.html">👤 Profile</a>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+        <div class="navbar">
+            <a href="index.html">🏠</a>
+            <a href="tasks.html">📺</a>
+            <a href="refer.html">👥</a>
+            <a href="wallet.html">💰</a>
+            <a href="profile.html">👤</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
