@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks - Ads Click Coin</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>📺 Available Tasks</h1>
-        
-        <div class="card" style="text-align: center; padding: 40px;">
-            <h2 style="color: #fbbf24;">Coming Soon!</h2>
-            <p style="margin-top: 15px;">নতুন সব টাস্ক খুব শীঘ্রই যোগ করা হবে। আমাদের সাথেই থাকুন এবং নতুন আপডেটের জন্য অপেক্ষা করুন।</p>
+        <div class="card">
+            <p>Task 1: Follow Telegram Channel</p>
+            <button class="btn" onclick="completeTask(10)">Claim 10 Tk</button>
         </div>
-
-        <div class="footer-space"></div>
-        
-        <div class="navbar">
-            <a href="index.html">🏠 Home</a>
-            <a href="tasks.html">📺 Tasks</a>
-            <a href="refer.html">👥 Refer</a>
-            <a href="wallet.html">💰 Wallet</a>
-            <a href="profile.html">👤 Profile</a>
+        <div class="card">
+            <p>Task 2: Join Group</p>
+            <button class="btn" onclick="completeTask(20)">Claim 20 Tk</button>
         </div>
     </div>
+    <div class="navbar">
+        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
+    </div>
     <script src="script.js"></script>
+    <script>
+        async function completeTask(amount) {
+            const user = window.Telegram.WebApp.initDataUnsafe.user;
+            // এখানে সুপাবেস লজিক: ব্যালেন্স আপডেট করার জন্য
+            alert("Task completed! " + amount + " Tk added.");
+            // ডাটাবেস আপডেট লজিক এখানে কল হবে
+        }
+    </script>
 </body>
 </html>
