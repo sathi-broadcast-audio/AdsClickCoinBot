@@ -1,43 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>👤 My Profile</h1>
-        
+        <h1>👤 Profile</h1>
         <div class="card" style="text-align:center;">
+            <img id="profilePhoto" class="profile-img" src="https://via.placeholder.com/100">
             <h2 id="userName">Loading...</h2>
             <p>ID: <span id="userId">000000</span></p>
         </div>
-
         <div class="grid-cards">
-            <div class="small-card">
-                <h3>Balance</h3>
-                <p id="profileBalance">0 Tk</p>
-            </div>
-            <div class="small-card">
-                <h3>Referrals</h3>
-                <p id="refCount">0</p>
-            </div>
+            <div class="small-card"><h3>Balance</h3><p id="profileBalance">0 Tk</p></div>
+            <div class="small-card"><h3>Referrals</h3><p id="refCount">0</p></div>
         </div>
-
-        <div class="card">
-            <h3>Referral Bonus</h3>
-            <p id="refBonus" style="font-size: 20px; font-weight: bold; color: gold;">0 Tk</p>
-        </div>
-
-        <div class="footer-space"></div>
-
-        <div class="navbar">
-            <a href="index.html">🏠</a>
-            <a href="tasks.html">📺</a>
-            <a href="refer.html">👥</a>
-            <a href="wallet.html">💰</a>
-            <a href="profile.html">👤</a>
-        </div>
+    </div>
+    <div class="navbar">
+        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
     </div>
     <script src="script.js"></script>
 </body>
