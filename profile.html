@@ -5,119 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile - Ads Click Coin</title>
 
-<style>
-body{
-    background:#0f172a;
-    color:white;
-    font-family:Arial,sans-serif;
-    padding:20px;
-    margin:0;
-}
+<link rel="stylesheet" href="style.css">
 
-.profile-card{
-    background:#1e293b;
-    border-radius:15px;
-    padding:25px;
-    text-align:center;
-}
-
-.profile-img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid gold;
-}
-
-.name{
-    font-size:24px;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.info-box{
-    background:#334155;
-    padding:12px;
-    border-radius:10px;
-    margin-top:10px;
-    text-align:left;
-}
-
-.label{
-    color:#94a3b8;
-    font-size:14px;
-}
-
-.value{
-    font-size:18px;
-    margin-top:3px;
-}
-
-.back-btn{
-    display:block;
-    margin-top:20px;
-    text-align:center;
-    color:white;
-    text-decoration:none;
-}
-</style>
 </head>
 <body>
 
+<div class="container">
+
 <h1>👤 Profile</h1>
 
-<div class="profile-card">
+<div class="card">
 
-    <img
-    id="profilePhoto"
-    class="profile-img"
-    src="https://via.placeholder.com/100"
-    alt="Profile Photo">
+<img
+id="profilePhoto"
+class="profile-img"
+src="https://via.placeholder.com/100"
+alt="Profile Photo">
 
-    <div class="name" id="userName">
-        Telegram User
-    </div>
+<br>
+
+<h2 id="userName">
+Telegram User
+</h2>
 
 </div>
 
 <div class="info-box">
-    <div class="label">User ID</div>
-    <div class="value" id="userId">
-        000000000
-    </div>
+<div class="label">User ID</div>
+<div class="value" id="userId">
+000000000
+</div>
 </div>
 
 <div class="info-box">
-    <div class="label">Username</div>
-    <div class="value" id="username">
-        @username
-    </div>
+<div class="label">Username</div>
+<div class="value" id="username">
+@username
+</div>
 </div>
 
 <div class="info-box">
-    <div class="label">Balance</div>
-    <div class="value" id="userBalance">
-        0 Tk
-    </div>
+<div class="label">Balance</div>
+<div class="value" id="userBalance">
+0 Tk
+</div>
 </div>
 
 <div class="info-box">
-    <div class="label">Referral Earnings</div>
-    <div class="value" id="referralIncome">
-        0 Tk
-    </div>
+<div class="label">Referral Earnings</div>
+<div class="value" id="referralIncome">
+0 Tk
+</div>
 </div>
 
 <div class="info-box">
-    <div class="label">Join Date</div>
-    <div class="value" id="joinDate">
-        09 June 2026
-    </div>
+<div class="label">Join Date</div>
+<div class="value" id="joinDate">
+09 June 2026
+</div>
 </div>
 
-<a href="index.html" class="back-btn">
-⬅ Back Home
-</a>
+<div class="footer-space"></div>
+
+<div class="navbar">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="tasks.html">📺 Tasks</a>
+
+<a href="refer.html">👥 Refer</a>
+
+<a href="wallet.html">💰 Wallet</a>
+
+<a href="profile.html">👤 Profile</a>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
