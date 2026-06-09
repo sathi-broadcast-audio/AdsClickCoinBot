@@ -5,63 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Withdraw - Ads Click Coin</title>
 
-<style>
-body{
-background:#0f172a;
-color:white;
-font-family:Arial,sans-serif;
-padding:20px;
-}
+<link rel="stylesheet" href="style.css">
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-}
-
-button{
-width:100%;
-padding:12px;
-margin-top:15px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:10px;
-}
-
-.notice{
-color:gold;
-margin-bottom:15px;
-}
-
-a{
-color:white;
-text-decoration:none;
-}
-</style>
 </head>
 <body>
+
+<div class="container">
 
 <h1>💸 Withdraw</h1>
 
 <div class="card">
 
-<div class="notice">
-Minimum Withdraw: 20 Tk
-</div>
+<p>Minimum Withdraw: 20 Tk</p>
 
 <select id="paymentMethod">
-<option value="">Select Payment Method</option>
-<option value="bkash">bKash</option>
-<option value="nagad">Nagad</option>
+
+<option value="">
+Select Payment Method
+</option>
+
+<option value="bkash">
+bKash
+</option>
+
+<option value="nagad">
+Nagad
+</option>
+
 </select>
 
 <input
@@ -76,15 +46,33 @@ id="withdrawAmount"
 placeholder="Enter Amount"
 >
 
-<button id="withdrawBtn">
+<button
+class="btn"
+id="withdrawBtn">
 Submit Withdraw Request
 </button>
 
 </div>
 
-<br>
+<div class="footer-space"></div>
 
-<a href="index.html">⬅ Back Home</a>
+<div class="navbar">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="tasks.html">📺 Tasks</a>
+
+<a href="refer.html">👥 Refer</a>
+
+<a href="wallet.html">💰 Wallet</a>
+
+<a href="profile.html">👤 Profile</a>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
