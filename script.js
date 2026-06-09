@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         // ডাটাবেজে ইউজার রেজিস্টার
         await supabase.from('users').upsert({ user_id: user.id, username: user.username }, { onConflict: 'user_id' });
         
-        // UI আপডেট
-        if(document.getElementById("userName")) document.getElementById("userName").innerText = user.first_name;
+        // UI আপডেট - নাম, আইডি, ফটো
+        if(document.getElementById("userName")) document.getElementById("userName").innerText = user.first_name || "User";
         if(document.getElementById("userId")) document.getElementById("userId").innerText = user.id;
         if(document.getElementById("profilePhoto") && user.photo_url) document.getElementById("profilePhoto").src = user.photo_url;
         
@@ -30,8 +30,19 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 });
 
+// কপি এবং শেয়ার বাটন ফাংশন
 document.getElementById("copyBtn")?.addEventListener("click", () => {
-    document.getElementById("referralLinkInput").select();
+    const input = document.getElementById("referralLinkInput");
+    input.select();
     document.execCommand("copy");
     alert("Copied!");
+});
+
+document.getElementById("shareBtn")?.addEventListener("click", () => {
+    const link = document.getElementById("referralLinkInput").value;
+    if (window.Telegram?.WebApp) {
+        window.Telegram.WebApp.openTelegramLink("https://t.me/share/url?url=" + encodeURIComponent(link) + "&text=" + encodeURIComponent("Join this amazing App and earn money!"));
+    } else {
+        alert("Share this link: " + link);
+    }
 });
