@@ -1,78 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Withdraw - Ads Click Coin</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-
-<h1>💸 Withdraw</h1>
-
-<div class="card">
-
-<p>Minimum Withdraw: 20 Tk</p>
-
-<select id="paymentMethod">
-
-<option value="">
-Select Payment Method
-</option>
-
-<option value="bkash">
-bKash
-</option>
-
-<option value="nagad">
-Nagad
-</option>
-
-</select>
-
-<input
-type="text"
-id="accountNumber"
-placeholder="Enter bKash/Nagad Number"
->
-
-<input
-type="number"
-id="withdrawAmount"
-placeholder="Enter Amount"
->
-
-<button
-class="btn"
-id="withdrawBtn">
-Submit Withdraw Request
-</button>
-
-</div>
-
-<div class="footer-space"></div>
-
-<div class="navbar">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="tasks.html">📺 Tasks</a>
-
-<a href="refer.html">👥 Refer</a>
-
-<a href="wallet.html">💰 Wallet</a>
-
-<a href="profile.html">👤 Profile</a>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <div class="container">
+        <h1>💸 Withdraw</h1>
+        <div class="card">
+            <label>Amount (Tk):</label>
+            <input type="number" id="withdrawAmount" placeholder="Enter amount" style="width:100%; padding:10px; margin:10px 0; border-radius:8px;">
+            
+            <label>Payment Method (e.g. Bkash/Nagad):</label>
+            <input type="text" id="payMethod" placeholder="Account Number" style="width:100%; padding:10px; margin:10px 0; border-radius:8px;">
+            
+            <button class="btn" onclick="submitWithdraw()" style="background:#059669;">Submit Request</button>
+        </div>
+    </div>
+    <div class="navbar">
+        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function submitWithdraw() {
+            const amount = document.getElementById("withdrawAmount").value;
+            if(amount < 50) {
+                alert("Minimum withdraw is 50 Tk");
+                return;
+            }
+            alert("Withdraw request submitted for " + amount + " Tk!");
+        }
+    </script>
 </body>
 </html>
