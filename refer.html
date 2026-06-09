@@ -5,56 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Referral - Ads Click Coin</title>
 
-<style>
-body{
-background:#0f172a;
-color:white;
-font-family:Arial,sans-serif;
-padding:20px;
-}
+<link rel="stylesheet" href="style.css">
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-margin-bottom:15px;
-}
-
-.value{
-font-size:24px;
-font-weight:bold;
-color:gold;
-}
-
-.ref-link{
-background:#334155;
-padding:12px;
-border-radius:10px;
-word-break:break-all;
-margin-top:10px;
-}
-
-.btn{
-width:100%;
-padding:12px;
-background:#2563eb;
-border:none;
-border-radius:10px;
-color:white;
-margin-top:15px;
-}
-
-a{
-color:white;
-text-decoration:none;
-}
-</style>
 </head>
 <body>
+
+<div class="container">
 
 <h1>👥 Referral Center</h1>
 
 <div class="card">
+
 <h3>Your Referral Link</h3>
 
 <div id="referralLink" class="ref-link">
@@ -64,20 +25,52 @@ https://t.me/AdsClickCoinBot?start=USER_ID
 <button class="btn" id="shareBtn">
 Share Referral Link
 </button>
+
 </div>
 
 <div class="card">
+
 <h3>Total Referrals</h3>
-<div class="value" id="totalReferrals">0</div>
+
+<div class="balance" id="totalReferrals">
+0
+</div>
+
 </div>
 
 <div class="card">
+
 <h3>Referral Earnings</h3>
-<div class="value" id="referralEarnings">0 Tk</div>
-<p>Bonus Per Qualified Referral: 5 Tk</p>
+
+<div class="balance" id="referralEarnings">
+0 Tk
 </div>
 
-<a href="index.html">⬅ Back Home</a>
+<p>
+Bonus Per Qualified Referral: 5 Tk
+</p>
+
+</div>
+
+<div class="footer-space"></div>
+
+<div class="navbar">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="tasks.html">📺 Tasks</a>
+
+<a href="refer.html">👥 Refer</a>
+
+<a href="wallet.html">💰 Wallet</a>
+
+<a href="profile.html">👤 Profile</a>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
