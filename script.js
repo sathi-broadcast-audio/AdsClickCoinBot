@@ -1,46 +1,37 @@
 const supabaseUrl = 'https://sfcfliatfpgrlsfyhnax.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNmY2ZsaWF0ZnBncmxzZnlobmF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMDA1OTQsImV4cCI6MjA5NjU3NjU5NH0.K3wEIvh5vNTm_KPmB0njCv4FDwtMKROTkCN2wj-d7Qk';
 
-// সুপাবেস ক্লায়েন্ট
 const supabase = window.supabase ? supabase.createClient(supabaseUrl, supabaseKey) : null;
 const tg = window.Telegram?.WebApp;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     if (tg) tg.expand();
-
-    // টেলিগ্রাম থেকে ইউজার ডাটা নেওয়া
     const user = tg?.initDataUnsafe?.user;
+    
     if (user) {
-        localStorage.setItem("userData", JSON.stringify(user));
-    }
-
-    const savedUser = JSON.parse(localStorage.getItem("userData"));
-    if (savedUser) {
-        // প্রোফাইল পেজের জন্য ডাটা আপডেট
-        document.getElementById("userName")?.innerText = savedUser.first_name || "User";
-        document.getElementById("userId")?.innerText = savedUser.id || "000000";
-        document.getElementById("username")?.innerText = savedUser.username ? "@" + savedUser.username : "No Username";
+        // ডাটাবেজে ইউজার রেজিস্টার
+        await supabase.from('users').upsert({ user_id: user.id, username: user.username }, { onConflict: 'user_id' });
         
-        // প্রোফাইল ফটো আপডেট
-        const photoEl = document.getElementById("profilePhoto");
-        if (photoEl && savedUser.photo_url) {
-            photoEl.src = savedUser.photo_url;
-        }
+        // UI আপডেট
+        if(document.getElementById("userName")) document.getElementById("userName").innerText = user.first_name;
+        if(document.getElementById("userId")) document.getElementById("userId").innerText = user.id;
+        if(document.getElementById("profilePhoto") && user.photo_url) document.getElementById("profilePhoto").src = user.photo_url;
+        
+        // রেফারেল লিঙ্ক
+        if(document.getElementById("referralLinkInput")) document.getElementById("referralLinkInput").value = `https://t.me/AdsClickCoinBot?start=${user.id}`;
 
-        // রেফারেল পেজের জন্য লিঙ্ক জেনারেট
-        const refLinkInput = document.getElementById("referralLinkInput");
-        if (refLinkInput) {
-            refLinkInput.value = `https://t.me/AdsClickCoinBot?start=${savedUser.id}`;
+        // ব্যালেন্স ফেচ
+        const { data } = await supabase.from('users').select('referral_count, balance').eq('user_id', user.id).single();
+        if(data) {
+            if(document.getElementById("refCount")) document.getElementById("refCount").innerText = data.referral_count;
+            if(document.getElementById("refBonus")) document.getElementById("refBonus").innerText = (data.referral_count * 5) + " Tk";
+            if(document.getElementById("homeBalance")) document.getElementById("homeBalance").innerText = (data.balance || 0) + " Tk";
         }
     }
 });
 
-// কপি ফাংশন
-document.getElementById("copyBtn")?.addEventListener("click", function() {
-    const copyText = document.getElementById("referralLinkInput");
-    if (copyText) {
-        copyText.select();
-        document.execCommand("copy");
-        alert("Referral link copied!");
-    }
+document.getElementById("copyBtn")?.addEventListener("click", () => {
+    document.getElementById("referralLinkInput").select();
+    document.execCommand("copy");
+    alert("Copied!");
 });
