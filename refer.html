@@ -1,76 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Referral - Ads Click Coin</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral - Ads Click Coin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-
-<h1>👥 Referral Center</h1>
-
-<div class="card">
-
-<h3>Your Referral Link</h3>
-
-<div id="referralLink" class="ref-link">
-https://t.me/AdsClickCoinBot?start=USER_ID
-</div>
-
-<button class="btn" id="shareBtn">
-Share Referral Link
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>Total Referrals</h3>
-
-<div class="balance" id="totalReferrals">
-0
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Referral Earnings</h3>
-
-<div class="balance" id="referralEarnings">
-0 Tk
-</div>
-
-<p>
-Bonus Per Qualified Referral: 5 Tk
-</p>
-
-</div>
-
-<div class="footer-space"></div>
-
-<div class="navbar">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="tasks.html">📺 Tasks</a>
-
-<a href="refer.html">👥 Refer</a>
-
-<a href="wallet.html">💰 Wallet</a>
-
-<a href="profile.html">👤 Profile</a>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <div class="container">
+        <h1>👥 Referral Center</h1>
+        <div class="card">
+            <h3>Your Referral Link</h3>
+            <input type="text" id="referralLinkInput" readonly style="background:#334155; color:gold; text-align:center; font-size:14px; margin-bottom:10px;">
+            <button class="btn" id="copyBtn">Copy Referral Link</button>
+        </div>
+        <div class="navbar">
+            <a href="index.html">🏠 Home</a>
+            <a href="refer.html">👥 Refer</a>
+            <a href="wallet.html">💰 Wallet</a>
+            <a href="profile.html">👤 Profile</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
