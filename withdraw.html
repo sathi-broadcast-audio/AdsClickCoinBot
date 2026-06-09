@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Withdraw - Ads Click Coin</title>
+
+<style>
+body{
+background:#0f172a;
+color:white;
+font-family:Arial,sans-serif;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+}
+
+.notice{
+color:gold;
+margin-bottom:15px;
+}
+
+a{
+color:white;
+text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<h1>💸 Withdraw</h1>
+
+<div class="card">
+
+<div class="notice">
+Minimum Withdraw: 20 Tk
+</div>
+
+<select id="paymentMethod">
+<option value="">Select Payment Method</option>
+<option value="bkash">bKash</option>
+<option value="nagad">Nagad</option>
+</select>
+
+<input
+type="text"
+id="accountNumber"
+placeholder="Enter bKash/Nagad Number"
+>
+
+<input
+type="number"
+id="withdrawAmount"
+placeholder="Enter Amount"
+>
+
+<button id="withdrawBtn">
+Submit Withdraw Request
+</button>
+
+</div>
+
+<br>
+
+<a href="index.html">⬅ Back Home</a>
+
+</body>
+</html>
