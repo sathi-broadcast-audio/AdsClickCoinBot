@@ -1,41 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wallet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallet - Ads Click Coin</title>
 
-<style>
-body{
-background:#0f172a;
-color:white;
-font-family:Arial;
-padding:20px;
-}
+<link rel="stylesheet" href="style.css">
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.balance{
-font-size:35px;
-color:gold;
-font-weight:bold;
-}
-
-.back{
-color:white;
-display:block;
-margin-top:20px;
-text-align:center;
-}
-</style>
 </head>
-
 <body>
+
+<div class="container">
 
 <h1>💰 Wallet</h1>
 
@@ -43,20 +18,51 @@ text-align:center;
 
 <p>Current Balance</p>
 
-<div class="balance">
-0 Coins
+<div class="balance" id="walletBalance">
+0 Tk
 </div>
-
-<hr>
-
-<p>Total Earned: 0 Coins</p>
-<p>Total Withdrawn: 0 Coins</p>
 
 </div>
 
-<a href="index.html" class="back">
-⬅ Back Home
-</a>
+<div class="card">
+
+<p>Total Earned</p>
+
+<div class="balance" id="totalEarned">
+0 Tk
+</div>
+
+</div>
+
+<div class="card">
+
+<p>Total Withdrawn</p>
+
+<div class="balance" id="totalWithdrawn">
+0 Tk
+</div>
+
+</div>
+
+<div class="footer-space"></div>
+
+<div class="navbar">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="tasks.html">📺 Tasks</a>
+
+<a href="refer.html">👥 Refer</a>
+
+<a href="wallet.html">💰 Wallet</a>
+
+<a href="profile.html">👤 Profile</a>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
