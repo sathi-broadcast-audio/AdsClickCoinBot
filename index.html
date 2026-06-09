@@ -1,43 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads Click Coin</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-</head>
+<html>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
+    <div class="container">
+        <div class="main-balance-card">
+            <h2>Current Balance</h2>
+            <div class="amount" id="homeBalance">0 Tk</div>
+        </div>
 
-<div class="container">
-    <h1>💰 Ads Click Coin</h1>
-    <div class="card">
-        <p>Current Balance</p>
-        <div class="balance" id="homeBalance">0 Tk</div>
+        <div class="grid-cards">
+            <div class="small-card"><h3>Tasks</h3><p id="taskCount">0</p></div>
+            <div class="small-card"><h3>Withdrawn</h3><p id="withdrawTotal">0 Tk</p></div>
+        </div>
+
+        <a href="tasks.html" class="btn">📺 Start Tasks</a>
+        <a href="withdraw.html" class="btn" style="background:#059669;">💸 Withdraw</a>
     </div>
-    <div class="card">
-        <a href="tasks.html" class="btn">📺 Tasks</a>
-        <a href="refer.html" class="btn">👥 Referral</a>
-        <a href="wallet.html" class="btn">💰 Wallet</a>
-        <a href="withdraw.html" class="btn">💸 Withdraw</a>
-        <a href="profile.html" class="btn">👤 Profile</a>
+
+    <div class="navbar">
+        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
     </div>
-    <div class="card">
-        <h3>Welcome</h3>
-        <p>Complete tasks, invite friends and earn rewards.</p>
-    </div>
-    <div class="footer-space"></div>
-</div>
-
-<div class="navbar">
-    <a href="index.html">🏠 Home</a>
-    <a href="tasks.html">📺 Tasks</a>
-    <a href="refer.html">👥 Refer</a>
-    <a href="wallet.html">💰 Wallet</a>
-    <a href="profile.html">👤 Profile</a>
-</div>
-
-<script src="script.js" defer></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
