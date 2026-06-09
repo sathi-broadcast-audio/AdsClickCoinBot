@@ -1,38 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet - Ads Click Coin</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>💰 Wallet</h1>
-        
-        <div class="card" style="text-align: center;">
+        <div class="card" style="text-align:center;">
             <p>Current Balance</p>
-            <div class="balance" id="walletBalance" style="color: gold; font-size: 32px;">0 Tk</div>
+            <div id="walletBalance" style="font-size:36px; font-weight:bold; color:gold;">0 Tk</div>
         </div>
-
-        <a href="withdraw.html" class="btn" style="background: #059669; padding: 20px; font-size: 18px;">💸 Withdraw Now</a>
+        
+        <a href="withdraw.html" class="btn" style="background:#059669; padding:20px;">💸 Withdraw Now</a>
 
         <div class="card">
             <h3>Withdraw History</h3>
-            <div id="historyContainer" style="margin-top: 10px; color: #94a3b8;">
-                <p>No recent withdrawals.</p>
+            <div id="historyContainer" style="margin-top:10px;">
+                <p>No withdrawals yet.</p>
             </div>
         </div>
-
-        <div class="footer-space"></div>
-
-        <div class="navbar">
-            <a href="index.html">🏠</a>
-            <a href="tasks.html">📺</a>
-            <a href="refer.html">👥</a>
-            <a href="wallet.html">💰</a>
-            <a href="profile.html">👤</a>
-        </div>
+    </div>
+    <div class="navbar">
+        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
     </div>
     <script src="script.js"></script>
 </body>
