@@ -1,89 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile - Ads Click Coin</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-
-<h1>👤 Profile</h1>
-
-<div class="card">
-
-<img
-id="profilePhoto"
-class="profile-img"
-src="https://via.placeholder.com/100"
-alt="Profile Photo">
-
-<br>
-
-<h2 id="userName">
-Telegram User
-</h2>
-
-</div>
-
-<div class="info-box">
-<div class="label">User ID</div>
-<div class="value" id="userId">
-000000000
-</div>
-</div>
-
-<div class="info-box">
-<div class="label">Username</div>
-<div class="value" id="username">
-@username
-</div>
-</div>
-
-<div class="info-box">
-<div class="label">Balance</div>
-<div class="value" id="userBalance">
-0 Tk
-</div>
-</div>
-
-<div class="info-box">
-<div class="label">Referral Earnings</div>
-<div class="value" id="referralIncome">
-0 Tk
-</div>
-</div>
-
-<div class="info-box">
-<div class="label">Join Date</div>
-<div class="value" id="joinDate">
-09 June 2026
-</div>
-</div>
-
-<div class="footer-space"></div>
-
-<div class="navbar">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="tasks.html">📺 Tasks</a>
-
-<a href="refer.html">👥 Refer</a>
-
-<a href="wallet.html">💰 Wallet</a>
-
-<a href="profile.html">👤 Profile</a>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <div class="container">
+        <h1>👤 Profile</h1>
+        <div class="card">
+            <img id="profilePhoto" class="profile-img" src="https://via.placeholder.com/100" alt="Profile Photo">
+            <h2 id="userName" style="text-align:center; margin-top:10px;">User</h2>
+        </div>
+        <div class="card">
+            <p>ID: <span id="userId">000000</span></p>
+            <p>Referral Count: <span id="refCount">0</span></p>
+            <p>Total Bonus: <span id="refBonus">0 Tk</span></p>
+        </div>
+        <div class="navbar">
+            <a href="index.html">🏠 Home</a>
+            <a href="profile.html">👤 Profile</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
