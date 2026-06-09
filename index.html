@@ -5,106 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ads Click Coin</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:white;
-}
-
-.header{
-    text-align:center;
-    padding:20px;
-}
-
-.logo{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-}
-
-.balance-box{
-    width:90%;
-    margin:15px auto;
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.balance{
-    color:gold;
-    font-size:30px;
-    font-weight:bold;
-}
-
-.menu{
-    width:90%;
-    margin:auto;
-}
-
-.btn{
-    display:block;
-    width:100%;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    padding:15px;
-    margin-top:12px;
-    border-radius:12px;
-    font-size:18px;
-}
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-    color:#94a3b8;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="header">
-    <h1>Ads Click Coin</h1>
-    <p>Watch Ads • Earn Coins</p>
+<div class="container">
+
+<h1>💰 Ads Click Coin</h1>
+
+<div class="card">
+
+<p>Current Balance</p>
+
+<div class="balance" id="homeBalance">
+0 Tk
 </div>
-
-<div class="balance-box">
-    <p>Your Balance</p>
-    <div class="balance">0 Coins</div>
-</div>
-
-<div class="menu">
-
-    <a class="btn" href="tasks.html">
-        📺 Tasks
-    </a>
-
-    <a class="btn" href="refer.html">
-        👥 Referral
-    </a>
-
-    <a class="btn" href="wallet.html">
-        💰 Wallet
-    </a>
-
-    <a class="btn" href="withdraw.html">
-        💸 Withdraw
-    </a>
 
 </div>
 
-<div class="footer">
-    Ads Click Coin © 2026
+<div class="card">
+
+<a href="tasks.html" class="btn">
+📺 Tasks
+</a>
+
+<a href="refer.html" class="btn">
+👥 Referral
+</a>
+
+<a href="wallet.html" class="btn">
+💰 Wallet
+</a>
+
+<a href="withdraw.html" class="btn">
+💸 Withdraw
+</a>
+
+<a href="profile.html" class="btn">
+👤 Profile
+</a>
+
 </div>
+
+<div class="card">
+
+<h3>Welcome</h3>
+
+<p>
+Complete tasks, invite friends and earn rewards.
+</p>
+
+</div>
+
+<div class="footer-space"></div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
