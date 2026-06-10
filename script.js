@@ -1,45 +1,64 @@
-const supabaseUrl = 'https://sfcfliatfpgrlsfyhnax.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNmY2ZsaWF0ZnBncmxzZnlobmF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMDA1OTQsImV4cCI6MjA5NjU3NjU5NH0.K3wEIvh5vNTm_KPmB0njCv4FDwtMKROTkCN2wj-d7Qk';
+import { getData, setData } from './api.js';
 
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+const tg = window.Telegram.WebApp;
+tg.ready();
 
-async function initApp() {
-    const tg = window.Telegram?.WebApp;
-    if (tg) tg.expand();
+// ইউজার আইডি পাওয়ার ফাংশন
+export const getUserId = () => tg.initDataUnsafe.user?.id || "guest_123";
+
+// ব্যালেন্স এবং ডাটা আপডেট করার ফাংশন
+export async function updateUI() {
+    const userId = getUserId();
+    const data = await getData(`user_${userId}`) || { 
+        balance: 0, 
+        tasks: [], 
+        referrals: [], 
+        history: [] 
+    };
+
+    // UI আপডেট (ID অনুযায়ী)
+    if (document.getElementById("userName")) document.getElementById("userName").innerText = tg.initDataUnsafe.user?.first_name || "Guest";
+    if (document.getElementById("userId")) document.getElementById("userId").innerText = userId;
+    if (document.getElementById("homeBalance")) document.getElementById("homeBalance").innerText = data.balance.toFixed(2) + " Tk";
+    if (document.getElementById("walletBalance")) document.getElementById("walletBalance").innerText = data.balance.toFixed(2) + " Tk";
     
-    // টেলিগ্রাম থেকে ইউজার ডাটা নেওয়া
-    const user = tg?.initDataUnsafe?.user;
-    
-    // যদি ইউজার না থাকে, তবে টেস্টের জন্য একটি আইডি ধরে নেওয়া (যা ডাটাবেজে আছে)
-    const userId = user?.id || 12345; 
-
-    console.log("Current User ID:", userId);
-
-    // ডাটাবেজ থেকে ডাটা আনা
-    const { data, error } = await supabase
-        .from('users')
-        .select('*')
-        .eq('user_id', userId)
-        .single();
-
-    if (error) {
-        console.error("Database Error:", error);
-        return;
+    // রেফারেল কাউন্ট আপডেট
+    if (document.getElementById("refCount")) {
+        document.getElementById("refCount").innerText = data.referrals.length;
     }
 
-    if (data) {
-        console.log("Data Found:", data);
-        
-        // সব আইডিগুলো আপডেট করা
-        if(document.getElementById("userName")) document.getElementById("userName").innerText = user?.first_name || "Guest";
-        if(document.getElementById("userId")) document.getElementById("userId").innerText = data.user_id;
-        if(document.getElementById("homeBalance")) document.getElementById("homeBalance").innerText = data.balance + " Tk";
-        if(document.getElementById("walletBalance")) document.getElementById("walletBalance").innerText = data.balance + " Tk";
-        if(document.getElementById("refCount")) document.getElementById("refCount").innerText = data.referral_count;
-        
-        const refInput = document.getElementById("referralLinkInput");
-        if(refInput) refInput.value = `https://t.me/AdsClickCoinBot?start=${data.user_id}`;
+    // রেফারেল লিংক সেট করা
+    const refInput = document.getElementById("referralLinkInput");
+    if (refInput) refInput.value = `https://t.me/AdsClickCoinBot?start=${userId}`;
+
+    // রেফারেল লিস্ট দেখানো (রেফারেল পেজের জন্য)
+    const refList = document.getElementById("refer-list");
+    if (refList) {
+        refList.innerHTML = data.referrals.map(ref => `
+            <div class="card">
+                <p>User ID: ${ref.id}</p>
+                <p>Status: ${ref.balance >= 5 ? '✅ Counted' : '⏳ Pending (< 5 Tk)'}</p>
+            </div>
+        `).join('');
     }
 }
 
-document.addEventListener("DOMContentLoaded", initApp);
+// টাস্ক হ্যান্ডলার
+window.handleTask = async (taskId) => {
+    const userId = getUserId();
+    let data = await getData(`user_${userId}`);
+    
+    // টাস্ক চেক
+    if (!data.tasks.includes(taskId)) {
+        data.balance += 0.50;
+        data.tasks.push(taskId);
+        await setData(`user_${userId}`, data);
+        alert("টাস্ক সফল!");
+        updateUI();
+    } else {
+        alert("টাস্কটি আগেই সম্পন্ন করেছেন।");
+    }
+};
+
+// অ্যাপ শুরু হলে ইউআই আপডেট
+updateUI();
