@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <title>Refer - AdsClickCoin</title>
 </head>
 <body>
     <div class="container">
-        <h1>👥 Referral Center</h1>
+        <h1>Referral System</h1>
         <div class="card">
-            <p>Your Referral Link</p>
-            <input type="text" id="referralLinkInput" readonly style="width:100%; padding:10px; margin:10px 0; border-radius:5px; border:none;">
-            <button id="copyBtn" class="btn">Copy Link</button>
+            <h3>Your Referral Link</h3>
+            <input type="text" id="refLink" readonly style="text-align: center; font-weight: bold;">
+            <button class="btn-green" onclick="copyLink()">Copy Link</button>
         </div>
-        <div class="card">
-            <h3>Total Referrals</h3>
-            <p id="refCount" style="font-size:24px; color:gold;">0</p>
-        </div>
+        
+        <h3>Referral History</h3>
+        <div id="refer-list"></div>
     </div>
-    <div class="navbar">
-        <a href="index.html">🏠</a><a href="tasks.html">📺</a><a href="refer.html">👥</a><a href="wallet.html">💰</a><a href="profile.html">👤</a>
+
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">🏠</a>
+        <a href="tasks.html" class="nav-link">📋</a>
+        <a href="refer.html" class="nav-link" style="border-bottom: 3px solid #28a745;">👥</a>
+        <a href="wallet.html" class="nav-link">💰</a>
+        <a href="profile.html" class="nav-link">👤</a>
     </div>
-    <script src="script.js"></script>
-    <script>
-        document.getElementById("copyBtn").addEventListener("click", () => {
-            const input = document.getElementById("referralLinkInput");
-            input.select();
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script type="module">
+        import { getReferLink, loadReferrals } from './script.js';
+        
+        // লিংক সেট করা
+        document.getElementById('refLink').value = getReferLink();
+        
+        // রেফারাল লিস্ট লোড করা
+        loadReferrals();
+
+        window.copyLink = () => {
+            const copyText = document.getElementById("refLink");
+            copyText.select();
             document.execCommand("copy");
-            alert("Referral link copied!");
-        });
+            alert("Referral Link copied to clipboard!");
+        };
     </script>
 </body>
 </html>
